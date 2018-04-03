@@ -1,0 +1,13 @@
+.fa {
+    color: #ccc;
+}
+
+.liked {
+    cursor: pointer;
+    color: deeppink;
+}
+
+.fa:hover {
+    cursor: pointer;
+    color: deeppink;
+}

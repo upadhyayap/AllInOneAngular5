@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row border-primary">
+        <input type="text" [(ngModel)]="email" (keypress) = "onkeyPress()">
+        <input type="button" value="Hit" (click)="click($event)" class="btn btn-primary">
+        <label class="ml-5 text-success"> {{ _hits }} </label>
+        <label class="ml-5 text-success"> {{ email | uppercase }} </label>
+        <label class="ml-5 text-warning"> {{ _hits | number:'2.2-2' }} </label>
+        <label class="ml-5 text-warning"> {{ _hits | currency }} </label>
+        <label class="ml-5 text-warning"> {{ _hits | percent }} </label>
+        <label class="ml-5 text-danger" [class.active]="isActive()"> {{ _hits | DoubleNumber }} </label>
+        <label class="ml-5" [class.active]="isActive" [class.another]="isActiveReally"> {{ _hits | DoubleNumber }} </label>
+    </div>
+</div>
+
+
+<ul>
+    <li *ngFor="let course of courses">
+        {{ course }}
+    </li>
+</ul>

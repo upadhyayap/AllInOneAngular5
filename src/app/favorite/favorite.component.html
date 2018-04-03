@@ -1,0 +1,8 @@
+<span 
+  class="glyphicon"
+  [class.glyphicon-star]="isFavorite"
+  [class.glyphicon-star-empty]="!isFavorite"
+  (click)="onClick()"
+  > {{ para }}</span>
+
+  <input type="button" value="Raise Event" class="btn btn-primary" (click)="raiseEvent()">

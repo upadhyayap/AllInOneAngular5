@@ -1,0 +1,51 @@
+<h1>
+    Welcome to {{ title }} !
+</h1>
+
+<app-courses></app-courses>
+<app-favorite [is-Favorite]="post.postIsFavorite" (change)="eventRaised($event)"></app-favorite>
+<app-panel>
+    <div class="title">
+        <h2>Title</h2>
+    </div>
+    <div class="body">
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat facilis officiis quidem in nulla, ratione, cupiditate, nesciunt tempore hic aliquam sapiente? Sunt recusandae ducimus tenetur minima assumenda nesciunt temporibus illo.
+        Totam, sequi natus placeat necessitatibus magnam a fugiat, quod omnis facilis, nesciunt magni modi blanditiis odit. Fuga assumenda temporibus, commodi repellendus exercitationem ad mollitia voluptatem quam, maiores culpa earum quasi!
+        Omnis sed ipsam eveniet eum dolorem nesciunt porro sunt itaque quisquam sapiente illum nisi, obcaecati cumque ea deleniti, voluptates laborum. Ipsa non ad sed voluptas laudantium cumque optio mollitia delectus.
+        Nam tenetur vel veritatis eveniet voluptate eius expedita debitis ipsum vero porro dicta dignissimos, adipisci esse vitae autem fugit sapiente quod? Soluta atque quod ipsum magni ad reprehenderit alias nulla.
+        Illo voluptatem rem dolorem doloribus expedita ad est obcaecati. Repellat accusamus natus odit veniam molestiae architecto, tempora soluta, voluptates veritatis culpa error libero, minima sed molestias id aliquid nam vitae?
+        Doloremque vel earum accusamus magni aspernatur soluta tempora enim non eaque eos aperiam itaque, reiciendis corrupti quasi laborum sint cupiditate! Officia necessitatibus, aliquid impedit eius ipsum possimus maiores itaque molestias.</span>
+    </div>
+    <ng-container class="footer">Footer</ng-container>
+</app-panel>
+
+<app-like [post]="tweet"></app-like>
+
+<div *ngIf="isThereAnyCourseAvailaible(); then courses else noCourses">
+    Inside If
+</div>
+
+<ng-template #courses>
+    <div>
+        Inside If
+    </div>
+</ng-template>
+
+<ng-template #noCourses>
+    <div>
+        Inside else
+    </div>
+</ng-template>
+
+<div>
+    <ul *ngFor="let person of people; index as i" [ngSwitch]="person.country">
+        <li *ngSwitchCase="'UK'" class="text-success"> {{ i }} {{ person.name }}</li>
+        <li *ngSwitchCase="'USA'" class="text-warning">{{ i }} {{ person.name }}</li>
+        <li *ngSwitchCase="'HK'" class="text-primary">{{ i }} {{ person.name }}</li>
+        <li *ngSwitchCaseDefault class="text-danger">{{ i }} {{ person.name }}</li>
+    </ul>
+</div>
+
+<span> {{ tasks.assignee.name }}</span>
+
+<input type="text" appInputFormat [format]="'lowercase'">

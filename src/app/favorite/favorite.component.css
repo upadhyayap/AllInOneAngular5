@@ -1,0 +1,9 @@
+.glyphicon-star {
+    border: 1px solid red;
+    width: 500px;
+}
+
+.glyphicon-star-empty {
+    background-color: blue;
+    width: 500px;
+}
