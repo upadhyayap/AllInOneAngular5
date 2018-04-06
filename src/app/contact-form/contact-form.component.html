@@ -1,0 +1,54 @@
+<div class="card mt-3 bg-light">
+  <div class="card-header">
+    <h2>Feedback Form</h2>
+  </div>
+  <div class="card-title">Please provide your feedback here</div>
+  <div class="card-body">
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+        <div ngModelGroup="contact" #contact="ngModelGroup">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input required  minlength="3" maxlength="10" pattern="anand" type="text" ngModel name="firstname" #firstname="ngModel" (click)="log(firstname)" class="form-control" id="firstName" placeholder="Your Name">
+      
+                <div *ngIf="firstname.touched && !firstname.valid" class="alert alert-danger">
+                  <div *ngIf="firstname.errors.required">First name can not be empty</div>
+                  <div *ngIf="firstname.errors.minlength">Can not be less than 3 characters</div>
+                  <div *ngIf="firstname.errors.maxlength">Can not be more than 10 characters</div>
+                  <div *ngIf="firstname.errors.pattern">Does not match pattern</div>
+                </div>
+      
+              </div>
+              <div class="form-group">
+                <label for="comment">Comments</label>
+                <textarea ngModel name="comment" #comment="ngModel" (click)="log(comment)"  id="comment" cols="30" rows="10" class="form-control" placeholder="Comments"></textarea>
+              </div>
+              <div class="form-group">
+                <div class="checkbox">
+                  <label for=""></label>
+                  <input type="checkbox" class="checkbox" ngModel name="isSubscribed"> Subscribe to mailing list
+                </div>
+                <p>
+                  {{ contactForm.value | json }}
+                </p>
+              </div>
+              <div class="form-group">
+                <label for="" id="contactmethod"> Contact Method</label>
+                <select ngModel name="contactMode" id="contactmethod" class="form-control">
+                    <option *ngFor="let mode of contactMethods" [ngValue]="mode"> {{ mode }} </option>
+                    <!-- <option  value="'mode'"> something </option> -->
+                </select>
+              </div>
+
+              <div class="radio" *ngFor="let radioMode of contactMethods">
+                <label>
+                  <input type="radio" name="contactradio" id="" value="1">
+                  {{ radioMode }}
+                </label>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Post" class="btn btn-primary" [disabled]="!contactForm.valid">
+              </div>
+        </div>
+      </form>
+</div>
+</div>

@@ -1,0 +1,40 @@
+<!-- <div class="card">
+  <div class="card-header">Posts</div>
+  <div class="card-body">
+      <input 
+      type="text" 
+      #title
+      (keyup.enter)="createPost(title)">
+
+      <ul class="list-group">
+        <li 
+        *ngFor="let post of posts"
+        class="list-group-item">
+          {{ post.title }}
+        </li>
+        <button 
+          (click)="updatePost(post)"
+          class="btn btn-sm btn-default">
+      </button>
+      </ul>
+  </div>
+  <div class="card-footer">Posts are retrived from json placeholder</div>
+</div> -->
+
+
+<input 
+type="text" 
+#title
+(keyup.enter)="createPost(title)">
+
+<ul class="list-group">
+  <li 
+    *ngFor="let post of posts"
+    class="list-group-item">
+      {{ post.title }}
+      <button
+        (click)="updatePost(post)"
+        class="btn btn-sm btn-default"> Delete
+      </button>
+  </li>
+</ul>
