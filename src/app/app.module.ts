@@ -17,6 +17,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: 'nextpage',
+        component: PostsComponent
+      }
+    ])
   ],
   providers: [
     CoursesService,
