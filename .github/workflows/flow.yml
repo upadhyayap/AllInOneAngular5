@@ -38,7 +38,7 @@ jobs:
         # Artifact name
         name: app-code
         # A file, directory or wildcard pattern that describes what to upload
-        path: ${{ github.workspace }}/artifact    
+        path: ${{ github.workspace }}/src    
   deploy:
     runs-on: ubuntu-latest
     name: deploy
@@ -52,6 +52,6 @@ jobs:
           # Artifact name
           name: app-code
           # Destination path
-          path: ${{ github.workspace }}/artifact
+          path: ${{ github.workspace }}/src
       - name: list dirs
         run: ls
