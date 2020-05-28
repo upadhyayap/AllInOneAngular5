@@ -42,6 +42,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: deploy
+    needs: [build]
     steps:
       - name: list dirs
         run: ls
