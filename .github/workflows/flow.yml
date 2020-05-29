@@ -21,7 +21,8 @@ jobs:
     steps:
     - name: install chrome
       run: |
-        sudo apt install -f google-chrome-stable
+        apt install -f google-chrome-stable
+        unzip -v
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
