@@ -22,14 +22,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Use Node.js ${{ env.NODE_VERSION }}
+    - name: Use Node.js $env.NODE_VERSION
       uses: actions/setup-node@v1
       with:
-        node-version: $GITHUB_WORKSPACE
+        node-version: $env.NODE_VERSION
     - name: install chrome
       run: |
-        sudo apt install -f google-chrome-stable
-        unzip -v
+        echo $GITHUB_WORKSPACE
+        cd $GITHUB_WORKSPACE
+        ls
+        # sudo apt install -f google-chrome-stable
+        # unzip -v
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
