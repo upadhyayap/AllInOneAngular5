@@ -26,15 +26,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{env.NODE_VERSION}}
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    
     - name: install chrome
       run: |
         echo $GITHUB_WORKSPACE
         cd $GITHUB_WORKSPACE
         ls
+        echo $secrets.a
         # sudo apt install -f google-chrome-stable
         # unzip -v
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
