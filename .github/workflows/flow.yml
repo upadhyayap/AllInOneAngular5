@@ -29,6 +29,11 @@ jobs:
       run: |
           ls
     
+    - uses: papeloto/action-zip@v1
+      with:
+        files: src
+        dest: result.zip
+    
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
