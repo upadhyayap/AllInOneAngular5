@@ -34,7 +34,7 @@ jobs:
       with:
         filename: 'App.zip'
         exclusions: '*.git*'
-        path: ./AllInOneAngular5/src
+        path: ./src
     
  
     - name: Upload a Build Artifact
