@@ -33,22 +33,14 @@ jobs:
       with:
         files: src
         dest: result.zip
-    
-    - name: Archive Release
-      uses: thedoctor0/zip-release@master
-      with:
-        filename: 'App.zip'
-        exclusions: '*.git*'
-        path: ./src
-    
- 
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
-        name: app-code
+        name: ApplicationCode
         # A file, directory or wildcard pattern that describes what to upload
-        path: ${{ github.workspace }}/App.zip    
+        path: ${{ github.workspace }}/result.zip    
   deploy:
     runs-on: ubuntu-latest
     name: deploy
