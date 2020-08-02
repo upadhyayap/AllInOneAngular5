@@ -22,39 +22,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Use Node.js ${{env.NODE_VERSION}}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{env.NODE_VERSION}}
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: install chrome
-      run: |
-        echo $GITHUB_WORKSPACE
-        cd $GITHUB_WORKSPACE
-        ls
-        echo $secrets.a
-        # sudo apt install -f google-chrome-stable
-        # unzip -v
-
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: |
-        cd src
-        pwd
-        
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        pwd
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'App.zip'
+        exclusions: '*.git*'
+        path: ./AllInOneAngular5/src
+    
+ 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
         name: app-code
         # A file, directory or wildcard pattern that describes what to upload
-        path: ${{ github.workspace }}/src    
+        path: ${{ github.workspace }}/App.zip    
   deploy:
     runs-on: ubuntu-latest
     name: deploy
